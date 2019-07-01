@@ -10,8 +10,14 @@ const place_holder = {
     PASSWORD: "Password"
 }
 
+const actions = {
+    DO_LOGIN: "DO_LOGIN",
+    SAVE_STORE: "SAVE_STORE"
+}
+
 module.exports = {
-    label: label,
-    button: button,
-    place_holder: place_holder
+    label,
+    button,
+    place_holder,
+    actions
 }
