@@ -1,13 +1,13 @@
 import React from 'react';
-import Login from './components/Login/login';
 import Home from './components/Home/home';
 import NotFound from './components/NotFound/notFound';
+import UserContainer from './containers/UserContainer';
 
 const routes = [
     {
         path: '/login',
         exact: false,
-        main: () => <Login />
+        main: () => <UserContainer />
     },
     {
         path: '/',

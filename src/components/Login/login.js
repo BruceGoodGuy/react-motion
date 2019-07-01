@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {label, button, place_holder} from './../../constants/main';
+import {label, button} from './../../constants/main';
 import './login.css';
 
 class Login extends Component {
@@ -15,7 +15,6 @@ class Login extends Component {
 
     changeInput = (event) =>{
         let {name, value} = event.target
-        console.log(value)
         this.setState ({
             [name] : value
         })
@@ -23,6 +22,7 @@ class Login extends Component {
     
     doLogin = (event) =>{
         event.preventDefault();
+        this.props.letSigin(this.state)
     }
   render(){
     return (
