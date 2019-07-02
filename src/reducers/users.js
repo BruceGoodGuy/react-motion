@@ -8,8 +8,15 @@ let initialState = [
 ];
 
 const users = (state = initialState, action) =>{
+    let history = action.history;
     switch(action.type){
-        case actions.SAVE_STORE: console.log(action); return [...state]; break;
+        case actions.SAVE_STORE: 
+        if(action.data.status === 200) {
+            history.push('/');
+        }else {
+            history.push('/login');
+        }
+        return [...state];
         default: return [...state];
     }
 }

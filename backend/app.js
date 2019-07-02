@@ -5,13 +5,24 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var apiRouter = require('./routes/api');
 require('dotenv').config();
+var bodyParser = require('body-parser')
+var cors = require('cors')
 
 
 
 var app = express();
+
+app.use(cors())
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+app.set('jwtTokenSecret', 'YOUR_SECRET_STRING');
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+ 
+// parse application/json
+app.use(bodyParser.json())
 
 app.use(logger('dev'));
 app.use(express.json());

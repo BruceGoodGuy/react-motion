@@ -8,7 +8,7 @@ class UserContainer extends Component {
       let {letSigin} = this.props;
     return (
         <Fragment>
-            <Login letSigin = {letSigin}></Login>
+            <Login letSigin ={letSigin}></Login>
         </Fragment>
     )
   }
@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch, props) => {
     return (
         {
             letSigin: (users) => {
-                dispatch(doLogin(users, dispatch));
+                dispatch(doLogin(users, dispatch, props.history));
             }
         }
     )

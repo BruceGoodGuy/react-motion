@@ -1,22 +1,17 @@
 import axios from 'axios';
 import * as Config from './../constants/config';
 
-export default function callAPI (endpoint, method='GET', body, token){
-  let params = {'Content-Type': 'application/json',
-                Accept: 'application/json'
-              }
-    // if(token !== null){
-    //     params = {'Content-Type': 'application/json',
-    //     Accept: 'application/json',
-    //     'Authorization': `Bearer ${token}`
-    //   };
-    // }
+export default function callAPI (endpoint, method='GET', body){
     return axios({
         method: method,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
         url: `${Config.API_URL}/${endpoint}`,
         data: body,
-        headers: params
       }).catch(err => {
-        console.log(err)
+        return err.response;
       })
 }
